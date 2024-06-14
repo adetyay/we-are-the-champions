@@ -75,6 +75,18 @@ button{
     border: none;
     border-radius: 8px;
     padding: 20px;
+    box-shadow: 0 5px #888888;
+}
+
+button:hover {
+    background-color: #1d719e;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #1d719e;
+    box-shadow: 0 4px #5a5a5a;
+    transform: translateY(2px);
 }
 
 p{
@@ -89,4 +101,10 @@ p{
     word-wrap: break-word;
     overflow: auto;
     white-space: pre-line;
+    box-shadow: 4px 4px 1px rgba(255, 255, 255, 0.146)
+}
+
+p:hover {
+    background-color: #9a9a9a;
+    cursor: pointer;
 }

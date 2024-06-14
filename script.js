@@ -67,7 +67,7 @@ function appendItemToEndorsements(item){
     endorsementsEl.append(newEl)
 }
 
-// scroll test area with mouse wheel
+// scroll text area with mouse wheel
 document.getElementById('text').addEventListener('wheel', function(event) {
     let textarea = this;
     let scrollTop = textarea.scrollTop;
