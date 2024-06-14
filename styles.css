@@ -59,6 +59,7 @@ textarea{
 }
 
 button{
+    cursor: pointer;
     width: 315px;
     font-size: 22px;
     font-family: "Josefin Sans", sans-serif;
@@ -67,4 +68,14 @@ button{
     border: none;
     border-radius: 8px;
     padding: 20px;
+}
+
+p{
+    width: 315px;
+    box-sizing: border-box;
+    padding: 15px;
+    background-color: white;
+    font-size: 12px;
+    border-radius: 8px;
+    text-align: center;
 }
