@@ -24,17 +24,53 @@ publishBtn.addEventListener("click", function(){
     }
 })
 
+onValue(endorsementsListInDB, function(snapshot){
+    if(snapshot.exists()){
+        let textsArray = Object.entries(snapshot.val())
+
+        clearEndorsementsList()
+
+        for(let i=0; i<textsArray.length; i++){
+            let currentItem = textsArray[i]
+
+            appendItemToEndorsements(currentItem)
+        }
+    } else{
+        endorsementsEl.textContent = "No endorsements here... yet"
+        endorsementsEl.style="color: white"
+    }
+})
+
 function clearTextField(){
     textFieldEl.value = ""
 }
 
+function clearEndorsementsList(){
+    endorsementsEl.textContent = ""
+    endorsementsEl.style="color: black"
+}
+
+function appendItemToEndorsements(item){
+    let itemID = item[0]
+    let itemValue = item[1]
+
+    let newEl = document.createElement("p")
+
+    newEl.textContent = itemValue
+
+    newEl.addEventListener("dblclick", function(){
+        let exactLocationOfItemInDB = ref(database, `endorsementList/${itemID}`)
+
+        remove(exactLocationOfItemInDB)
+    })
+    
+    endorsementsEl.append(newEl)
+}
 
 // scroll test area with mouse wheel
-
 document.getElementById('text').addEventListener('wheel', function(event) {
     let textarea = this;
     let scrollTop = textarea.scrollTop;
     textarea.scrollTop = scrollTop + event.deltaY;
     event.preventDefault();
 });
-
